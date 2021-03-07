@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >
+  Just a Simple EC2 Template. This template can only be launched in us-east-1 as the ami is hardcoded
+Resources:
+  EC2Instance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      #Required
+      ImageId: ami-0080e4c5bc078760e
+
+      #NotRequired
+      InstanceType: t2.micro #not required because if not provided, it defaults to m1.small
+      KeyName: myAWSKey #replace with a valid keyname from your us-east-1 region
+      AvailabilityZone: us-east-1e
