@@ -10,5 +10,10 @@ Resources:
 
       #NotRequired
       InstanceType: t2.micro #not required because if not provided, it defaults to m1.small
-      KeyName: myAWSKey #replace with a valid keyname from your us-east-1 region
+      KeyName: !Ref KeyName
       AvailabilityZone: us-east-1e
+Parameters:
+  KeyName:
+    Description: Name of an existing EC2 KeyPair to enable SSH access to the instance
+    Type: "AWS::EC2::KeyPair::KeyName"
+    ConstraintDescription: must be the name of an existing EC2 KeyPair.
